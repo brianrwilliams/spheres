@@ -1,0 +1,125 @@
+\documentclass[../main.tex]{subfiles}
+
+%\IfEq{\jobname}{\detokenize{main}}{}{%
+%    \setcounterref{chapter}{../master-chap:hilbertpts}
+%    \addtocounter{chapter}{+3}
+%}
+
+
+\begin{document} 
+
+\section{Non-topological Poisson $\sigma$-models}
+
+Two-dimensional topological field theories of AKSZ type describe moduli spaces of maps
+\beqn
+\label{eq:psm1}
+\Sigma_{dR} \to (X,\omega)
+\eeqn
+where $\Sigma_{dR} = \T[1] \Sigma$ is the de Rham space of a real oriented surface $\Sigma$ and $(X,\omega)$ is a $1$-shifted symplectic space.
+The AKSZ construction combines the $2$-orientation of $\Sigma$ with the $1$-shifted symplectic form $\omega$ to endow the space of maps above with the structure of a $(-1)$-shifted symplectic space.
+
+One can apply the AKSZ construction to construct theories which are non-topological.
+The key idea is that we can replace $\Sigma$ with \textit{any} $2$-oriented space.
+As a non-topological example, consider the product manifold
+\beqn
+S \times C
+\eeqn
+where $C$ is a Riemann surface (complex one-dimensional manifold) and $S$ is an oriented one-manifold.
+The choice of a $2$-orientation on this manifold is equivalent to the data of a holomorphic volume element on $C$, which we denote by $\d z$.
+Then for any $1$-shifted symplectic manifold $(X,\omega)$ as before, the space of maps
+\beqn\label{eq:psm2}
+S_{dR} \times (C_{\dbar},\d z) \to (X,\omega)
+\eeqn
+is equipped with a $(-1)$-shifted symplectic structure.
+Such a theory is not topological, but can nevertheless be placed within the BV formalism via the AKSZ construction.
+
+A standard class of $1$-shifted symplectic spaces have underlying graded manifold of the form $\T^* [1] M$ where $M$ is an ordinary manifold.
+In fact, $1$-shifted symplectic structures $\omega$ on this space are completely determined by ordinary Poisson structures on the manifold $M$.
+For this $1$-shifted symplectic space, the two-dimensional theory determined by the space of maps \eqref{eq:psm1} is the Poisson $\sigma$-model.
+We will refer to the three-dimensional theory determined by the space of maps \eqref{eq:psm2} as the topological-holomorphic Poisson $\sigma$-model.
+
+In this section we will describe this model in more detail and relate it to three-dimensional theories obtained supersymmetry via twisting.
+Next we will discuss boundary conditions...
+
+\subsection{The topological-holomorphic Poisson $\sigma$-model}
+
+Let $\Sigma$ be a two-dimensional closed oriented manifold.
+The ordinary Poisson $\sigma$-model has space of fields consisting of pairs of a map $\phi \colon \Sigma \to M$ together with a one-form $\eta \in \Omega^1(\Sigma, \phi^* \T_M^*)$ valued in the pullback along $\phi$ of the cotangent bundle of $M$.
+The action functional \cite{CF_psm,Strobl,Ikeda} is
+\beqn
+\label{eq:bvaction1}
+S(\phi, \eta) = \int_\Sigma \left(\eta \d \phi + \frac12 (\pi, \eta \wedge \eta)\right) .
+\eeqn
+Any element $\beta \in \Gamma(\Sigma, \phi^*\T^*_X)$ determines a symmetry $\delta_\beta$ of the action defined by
+\begin{align*}
+\delta_\beta \phi & = - (\pi, \beta) \\
+\delta_\beta \eta & = \d \beta + (\d_M \pi, \eta \wedge \beta) .
+\end{align*}
+To write the Poisson $\sigma$-model in the BV formalism one looks at the mapping space between graded manifolds
+\beqn
+\T[1]\Sigma \to \T^*[1] M .
+\eeqn
+We will abusively denote the full BV fields as inhomogenous differential forms $\phi_i, \eta_j$ where $i=0,1,2$ and $j=-1,0,1$.
+Explicitly the full space of BV fields is
+\begin{itemize}
+\item a map $\phi = \phi_0 \colon \Sigma \to M$ and a one-form $\eta = \eta_0 \in \Omega^1(\Sigma, \phi^* \T_M^*)$ as before.
+\item a ghost (of cohomological degree $-1$) $\beta = \eta_{-1} \in \Gamma(\Sigma, \phi^*\T^*X)$.
+\item anti-fields (of cohomological degree $+1$) $\phi_1 \in \Omega^1(\Sigma, \phi_0^*\T_X)$ and $\eta_1 \in \Omega^2(\Sigma, \phi^*\T^*_X)$.
+\item anti-ghost (of cohomological degree $+2$) $\phi_2 \in \Omega^2(\Sigma, \phi_0^*\T_X)$.
+\end{itemize}
+If we denote by $\phi = (\phi_0,\phi_1,\phi_2)$ and $\eta = (\eta_{-1},\eta_0,\eta_1)$ the inhomogenous BV fields then the full BV action reads exactly as in \eqref{eq:bvaction1}.
+The BV pairing is simply
+\beqn
+\omega = \int_\Sigma \delta \phi \wedge \delta \eta .
+\eeqn
+
+There is a closely related two-dimensional topological gauge theory which depends on the data of a Lie group $G$ called topological $BF$ theory.
+The primary fields of this model comprise of a connection 
+\beqn
+A \in \Omega^1(M, \lie{g})
+\eeqn
+of the trivial $G$-bundle on $\Sigma$ together with a section
+\beqn
+B \in \Gamma(M, \lie{g}^*) .
+\eeqn
+The action functional of topological $BF$ is $\int_{\Sigma} B F_A$ where $F_A$ is the curvature of $A$.
+
+\begin{prop}
+[\cite{??}]
+Two-dimensional topological $BF$ theory for the trivial $G$-bundle is equivalent to the Poisson $\sigma$-model with target $\lie{g}^*$ which is equipped with its Kirillov-Kostant-Souriau Poisson structure.
+\end{prop}
+
+To carefully formulate this equivalence it is best to use the BV formalism, but at the level of physical fields one identifies $B$ with $\phi \colon M \to \lie{g}^*$ and $A$ with $\eta$.
+
+With this review of the ordinary Poisson $\sigma$-model in place we turn out attention to its non-topological analog. 
+Let $C$ be a closed Riemann surface equipped with a holomorphic volume form $\d z$ and let $S$ be an oriented closed one-dimensional manifold.
+Let $\T^{0,1}[1] C$ be the graded manifold whose graded ring of (complex valued) functions is $\Omega^{0,\#}(C) = \Omega^{0,0}(C) \oplus \Omega^{0,1}(C) [-1]$.
+
+\begin{dfn}
+Let $C,S,M$ be as above.
+The topological-holomorphic Poisson $\sigma$-model of maps $S \times C \to M$ is the BV theory whose fields are maps of graded manifolds
+\beqn
+\T^{0,1}[1] C \times \T [1] S \to \T^* [1] M .
+\eeqn
+The BV pairing is given by $\omega = \int_{S \times C} \d z \wedge \delta \phi \wedge \delta \eta$, and the BV action is
+\beqn
+\label{eq:bvaction1}
+S(\phi, \eta) = \int_{S \times C} \d z \wedge \left(\eta \d' \phi + \frac12 (\pi, \eta \wedge \eta)\right) .
+\eeqn
+\end{dfn}
+
+\begin{prop}
+Let $G$ be a complex Lie group.
+Three-dimensional topological-holomorphic $BF$ theory on $S \times C$ for the trivial $G$-bundle is equivalent to the topological-holomorphic Poisson $\sigma$-model on $S \times C$ with target $\lie{g}^*$ equipped with its Kirillov-Kostant-Souriau Poisson structure.
+\end{prop}
+
+\subsection{Boundary conditions}
+
+\begin{prop}
+Let $X$ be an affine Poisson variety and consider the topological-holomorphic $\sigma$-model on $\R_{\geq 0} \times C$ associated to $X$ where we impose the Dirichlet boundary condition $A|_{0 \times C} = 0$.
+The boundary Poisson ...
+
+When $C = \C$ the resulting boundary Poisson vertex algebra is equivalent to the Poisson vertex algebra associated to $J_\infty X$.
+\end{prop} 
+
+\end{document}

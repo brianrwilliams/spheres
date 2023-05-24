@@ -1,0 +1,321 @@
+\documentclass[../main.tex]{subfiles}
+
+%\IfEq{\jobname}{\detokenize{main}}{}{%
+%    \setcounterref{chapter}{../master-chap:hilbertpts}
+%    \addtocounter{chapter}{+3}
+%}
+
+
+\begin{document} 
+
+\section{A derived model for spheres}
+
+\subsection{Foliations on spheres}
+
+A transversely holomorphic foliation (THF) on a smooth manifold $M$ is a foliation $\cF$ of codimension $2n$ whose leaf space is equipped with the structure of a complex manifold \cite{Asuke,Rawnsley}. 
+We will say that such a foliation $\cF$ equips $M$ with the a THF structure. 
+%Suppose $M$ is a manifold equipped with a THF structure and let $\cF$ be the corresponding foliation of even codimension.
+The product $X \times N$, where $X$ is a complex manifold and $N$ is a smooth manifold has a natural THF structure with $\cF$ the restriction of the tangent bundle of $N$ along the projection.
+Locally, the THF structure is split of the form $\C^n \times \R^m$, whose coordinates we will denote by $(z_i ;  x_j)$.
+The tangent space to the foliation $\cF$ is locally spanned by $\partial / \partial x_i$. 
+
+Let $Q_{\R}$ be the (real) quotient bundle $\T_M / \T_\cF$. 
+There is an integrable subbundle $V$ of the complexified tangent bundle $\T^\C_ M$ which is locally spanned by $\partial / \partial \zbar_i$ and $\partial / \partial x_j$. 
+Integrability of $\cF$ ensures that $V$ is well-defined globally. 
+Denote by $Q$ the (complex) quotient bundle $\T_\C M / V$.
+Notice that there is a canonical isomorphism of complex bundles $Q \oplus \Bar{Q} = Q_\R \otimes_\R \C$. 
+
+%Sections of $V$ form a Lie algebra with respect to the Lie bracket of vector fields. 
+
+For each $p,q$ denote by $\cA^{p;q}$ smooth sections of the bundle $\wedge^p Q^\vee \otimes \wedge^q V^\vee$. 
+The derivative along the leaves of the foliation defined by $V$ defines a map 
+\[
+\thfd \colon \cA^{p;q} \to \cA^{p;q+1}  .
+\]
+By integrability one has $\thfd^2 = \thfd \circ \thfd = 0$ and so $\thfd$ equips $\cA^{p;\bu} = \oplus_q \cA^{p;q}[-q]$ with the structure of a cochain complex for each $p$. 
+The obvious exterior product $\cA^{p;q} \times \cA^{r;s} \to \cA^{p+r;q+s}$ further endows 
+\[
+\left(\cA^{\bu;\bu}, D\right) = \left(\oplus_p \cA^{p;\bu}[-p] , D \right) 
+\]
+with the structure of a bigraded commutative dg algebra.
+
+Locally, a section of $\cA^{p;q}$ is of the form
+\[
+\alpha = \sum_{I,J,K} f_{I,J,K} (z,\zbar, x) \d^I z \d^J \zbar \d^K x 
+\]
+where the sum runs over multi indices $I = (i_1,\ldots,i_p)$, $J = (j_1,\ldots,j_r)$, $K = (k_1,\ldots,k_s)$ with $r + s = q$. 
+In this formula we have used the shorthand notations 
+\begin{align*}
+\d^I z & = \d z_{i_1} \cdots \d z_{i_p} \\ 
+\d^J \zbar & = \d \zbar_{j_1} \cdots \d \zbar_{j_r} \\
+\d^K x & = \d x_{k_1} \cdots \d x_{k_s} .
+\end{align*}
+The differential $\thfd$ acting on the section $\alpha$ is 
+\[
+\thfd (\alpha) = \sum_{I,J,K} \left(\sum_{i} \frac{\del f_{I,J,K}}{\del \zbar_i} \d \zbar_i + \sum_{j} \frac{\del f_{I,J,K}}{\del x_j} \d x_j \right) \d^I z \d^J \zbar \d^K x .
+\] 
+Thus locally $\d'$ is simply a sum of the Dolbeault operator $\dbar$ on $\C^n$ and the de Rham operator $\d$ on $\R^m$.
+
+\begin{dfn}
+The \defterm{Dolbeault--de Rham cohomology} of $\wedge^p Q^\vee$ is
+\[
+H^{p,\bu}_{\thfd} (M) = H^{\bu} \left(\cA^{p;\bu}(M), \thfd \right) .
+\]
+We refer to $(\cA^{p;\bu}(M), \thfd)$ as the Dolbeault--de Rham complex of $\wedge^p Q^\vee$. 
+\end{dfn}
+
+More generally one can define the Dolbeault--de Rham complex of a vector bundle $E \to M$ compatible with the THF structure, but we will not need that. 
+
+\parsec
+Suppose that $M = X \times N$ is a split THF structure. 
+Then there is an isomorphism of commutative dg algebras
+\[
+\left(\cA^{p;\bu}(M), \d'\right) \cong \left(\Omega^{p,\bu}(X) \hotimes \Omega^\bu(N) \, , \, \dbar \otimes \id + \id \otimes \d\right) 
+\]
+where $\Omega^{p,\bu}(X)$ is the usual Dolbeault complex of the complex manifold $X$ and $\Omega^\bu(N)$ is the de Rham complex of $N$.
+
+\subsection{Cohomology of punctured $\C^n \times \R^m$}
+
+Notice that any open submanifold of a THF manifold has the natural structure of a THF manifold. 
+In particular, the submanifold 
+\beqn \label{eqn:punctured}
+M(n,m) \define (\C^n \times \R^m) \setminus 0 \subset \C^n \times \R^m 
+\eeqn
+has a THF structure.
+We will characterize the Dolbeault--de Rham cohomology of~\eqref{eqn:punctured}.
+Of course, this manifold is diffeomorphic to $S^{2n+m-1} \times \R_{>0}$, hence the full THF cohomology will have a deformation to the cohomology of the sphere $H^\bu(S^{2n+m-1})$.
+
+\begin{thm}
+Suppose that $n+m > 1$.
+The cohomology
+\beqn
+H^{p;q} \define H^{p;q}_{\thfd}\left(M(n,m)\right)
+\eeqn
+admits the following description. 
+\begin{itemize}
+\item When $p = 0$ the cohomology is concentrated in degrees zero and $n+m-1$.
+The cohomology $H^{0;0}$ is isomorphic to the algebra of holomorphic functions on $\C^n$.
+The isomorphism is induced by the restriction of holomorphic functions along the composition
+\[
+\C^n \times \R^m \setminus 0 \hookrightarrow \C^n \times \R^m \twoheadrightarrow \C^n . 
+\]
+\item When $p = n$ the cohomology is
+\end{itemize}
+\end{thm}
+
+\subsection{An algebraic model for the THF two-sphere}
+
+Let $\sfR_{1,1}$ be the commutative algebra generated by variables 
+\beqn
+w,\lambda,x
+\eeqn
+subject to the relation
+\beqn
+w \lambda + x^2 = 1 .
+\eeqn
+Let $\sfA_{1,1}$ be the graded commutative algebra freely generated over $\sfR_{1,1}$ by a degree $+1$ element $\omega$.
+Thus $\sfA_{1,1} = \sfR_{1,1} \oplus \sfR_{1,1} \omega [-1]$.
+Define a differential
+\beqn
+\d' \colon \sfA_{1,1} \to \sfA_{1,1} [1]
+\eeqn
+on $\sfA_{1,1}$ by the formulas
+\beqn
+\d' (w) = 0, \quad \d' (\lambda) = - 2x \omega, \quad \d' (x) = w \omega .
+\eeqn
+Notice that the algebra of vector fields $\Vect^{poly}(\C) = \C[z] \del_z$ with polynomial coefficients naturally acts on $\sfA_{1,1}$ as a cochain complex.
+
+\begin{prop}
+There are $\Vect^{poly}(\C)$-equivariant isomorphisms
+\beqn
+H^0 (\sfA_{1,1}) \simeq \C[w] 
+\eeqn
+and
+\beqn
+H^1(\sfA_{1,1}) \simeq \C[\lambda] \omega 
+\eeqn
+\end{prop}
+
+Consider the Dolbeault--de Rham complex 
+\[
+\cA^{\bu;(0)}(\C \times \R - \{0\})
+\]
+of the THF manifold $\C \times \R - \{0\}$ equipped with the Dolbeault--de Rham differential $\d'$.
+Denote the coordinates on $\C \times \R$ by $(w,\wbar;t)$.
+
+\begin{prop}
+\label{prop:model1}
+There is an injective morphism of commutative dg algebras 
+\[
+j \colon \sfA_{1,1} \hookrightarrow \cA^{\bu;(0)}(\C\times \R - \{0\}) .
+\]
+which is a dense embedding in cohomology.
+On degree zero generators it is defined by $j(z) = z$, $j(\lambda) = \frac{\zbar}{r^2}$, $j(x) = \frac{t}{r}$ where $r^2 = z \zbar + t^2$.
+On the degree one generator we define $j (\omega) = \omega_{S^2}$ where
+\beqn
+\omega_{S^2} \define \# \frac{2 \zbar \d t - t \d \zbar}{r^3} .
+\eeqn
+\end{prop}
+
+\subsection{An algebraic model for the CR three-sphere}
+
+Let $\sfR_{2,0}$ be the algebra generated by the degree zero variables 
+\beqn
+z_1,z_2,\lambda_1,\lambda_2
+\eeqn
+subject to the relation
+\beqn
+z_1 \lambda_1 + z_2 \lambda_2 = 1 .
+\eeqn
+Let $\sfA_{1,1}$ be the graded commutative algebra freely generated over $\sfR_{2,0}$ by a degree $+1$ element $\omega$.
+Thus $\sfA_{2,0} = \sfR_{2,0} \oplus \sfR_{2,0} \omega [-1]$.
+
+Define the linear map 
+\beqn
+\dbar \colon \sfA_{2,0} \to \sfA_{2,0}[1] 
+\eeqn
+by the rules
+\begin{itemize}
+	\item $\dbar(z_i) = 0$.
+	\item $\dbar(\lambda_i) = \ep_{ij} z_j \omega$ ,
+\end{itemize}
+and extend its action to the entire graded algbra $\sfA_{2,0}$ by the rule that it is a graded derivation.
+Notice that this differential is well-defined since
+\beqn
+\dbar(z_1 \lambda_1 + z_2 \lambda_2) = z_1 z_2 \omega + z_2 (-z_1 \omega) = 0 .
+\eeqn
+
+The cohomology $H^\bu(\sfA_{2,0}, \dbar)$ is concentrated in degrees zero and one. 
+In degree zero, the cohomology is simply polynomials in the variables $z_1,z_2$:
+\beqn
+H^0(\sfA_{2,0},\dbar) \cong \C[z_1,z_2].
+\eeqn
+And in degree one, the cohomology can be identified with
+\beqn
+H^1(\sfA_{2,0},\dbar) \cong \C[\lambda_1,\lambda_2] \omega .
+\eeqn
+
+As a corollary of this result we have the following, see also \cite{FHK}.
+
+\begin{prop}
+\label{prop:modelA}
+The dg algebra $(\sfA_{2,0},\dbar)$ is a model for punctured two-dimensional affine space
+\beqn
+\sfA \simeq \R \Gamma(\A^2 - \{0\}, \cO) .
+\eeqn
+\end{prop}
+
+\begin{rmk}
+The motivation for this model comes from the (algebraic) Dolbeault complex $\Omega^{0,\bu}_{alg}(\A^2 - \{0\})$ of punctured affine space.
+Indeed, there is a quasi-isomorphism
+\beqn
+j \colon \sfA \hookrightarrow \Omega^{0,\bu}_{alg}(\A^2 - \{0\})
+\eeqn
+defined by $j(z_i) = z_i$, $j (\zbar_i / |z|^2) = \lambda_i$.
+\end{rmk}
+
+\begin{rmk} 
+We point out that there is a formal version of $\sfA$ which we denote by $\Hat{\sfA}$.
+The zeroth cohomology of this commutative dg algebra is $\C[[z_1,z_2]]$.
+This is a model for the punctured formal two-dimensional disk.
+In this model the vector spaces $H^0(\Hat{\sfA})$ and $H^1(\Hat{\sfA})$ are canonically dual using the residue pairing (see the next section).
+\end{rmk}
+
+\begin{rmk}
+There is a standard \v{C}ech cover of $\A^2 - \{0\}$ consisting of two open sets $U_1 = \{z_1 \ne 0\}$ and $U_2 = \{z_2 \ne 0\}$.
+The first \v{C}ech cohomology with respect to this cover can be identified with the $\C[z_1,z_2]$-module $z_1^{-1} z_2^{-1} \C[z_1^{-1},z_2^{-1}]$.
+\end{rmk}
+
+
+
+%\appendix
+%
+%\section{A model for punctured affine space}
+%
+%Consider the following algebra $\sfR_n$ on generators
+%\beqn
+%z_i, \lambda_i, \quad i=1,\ldots,n
+%\eeqn
+%subject to the relation
+%\beqn
+%\sum_{i=1}^n z_i \lambda_i = 1 .
+%\eeqn
+%
+%Let $I$ denote a multi-index of length $|I|$
+%\beqn
+%I = (i_1,\ldots,i_{|I|})
+%\eeqn
+%where $i_j = 1,\ldots, n$.
+%For each $k$ we introduce generators 
+%\beqn
+%\lambda_{I}, \quad |I|=k
+%\eeqn
+%of cohomological degree $k-1$
+%which are totally skew-symmetric in the sense that
+%\beqn
+%\lambda_{\sigma(I)} = (-1)^\sigma \lambda_I .
+%\eeqn
+%
+%Let $\sfA_n$ be the graded algebra over $\sfR_n$ generated by elements $\lambda_I$ for every multi-index of length $k=1,\ldots,n$.
+%In other words
+%\beqn
+%\sfA_n = \sfR_n [\lambda_{i_{1} i_2}, \ldots, \lambda_{i_1 i_2 \cdots i_n}] .
+%\eeqn
+%
+%\subsection{The two-dimensional case}
+%
+%The algebra $\sfA_2$ is generated by four degree zero elements 
+%\beqn
+%z_1,z_2,\lambda_1,\lambda_2
+%\eeqn
+%and a single degree one element
+%\beqn
+%\omega = \lambda_{12} = - \lambda_{21} .
+%\eeqn
+%These generators are subject to the single relation
+%\beqn
+%z_1 \lambda_1 + z_2 \lambda_2 = 1 .
+%\eeqn
+%
+%In particular, $\sfA_2$ is concentrated in degrees zero and one.
+%The differential is
+%\beqn
+%\dbar(z_i) = 0, \quad \dbar (\lambda_i) = - \ep_{ij} z_j \omega .
+%\eeqn
+%
+%\subsection{The three-dimensional case}
+%
+%The algebra $\sfA_3$ is generated by six degree zero generators
+%\beqn
+%z_i, \lambda_i, \quad i=1,2,3
+%\eeqn
+%three degree one elements
+%\beqn
+%\lambda_{12} = - \lambda_{21}, \; \lambda_{23}=-\lambda_{32}, \; \lambda_{31} = - \lambda_{31}
+%\eeqn
+%and a single degree two element
+%\beqn
+%\omega = \lambda_{123} .
+%\eeqn
+%These generators are subject to the relations
+%\beqn
+%\sum^3_{i=1} z_i \lambda_i = 1
+%\eeqn
+%and
+%\beqn
+%\lambda_{ij} \lambda_{ik} = \pm \lambda_i \omega .
+%\eeqn
+%Notice that these relations imply that $\lambda_{ij} \omega=0$ \brian{does it?} and $\omega^2 = 0$.
+%
+%The complex is concentrated in degrees zero, one, and two.
+%The differential is defined on degree zero generators by
+%\beqn
+%\dbar(z_i) = 0, \quad \dbar(\lambda_i) = \sum_{j \ne i} z_j \lambda_{ij} 
+%\eeqn
+%and on degree one generators by
+%\beqn
+%\dbar(\lambda_{ij}) = \pm \ep_{ijk} z_k \omega .
+%\eeqn
+
+
+\end{document}

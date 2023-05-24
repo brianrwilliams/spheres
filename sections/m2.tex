@@ -1,0 +1,70 @@
+\documentclass[../main.tex]{subfiles}
+
+%\IfEq{\jobname}{\detokenize{main}}{}{%
+%    \setcounterref{chapter}{../master-chap:hilbertpts}
+%    \addtocounter{chapter}{+3}
+%}
+
+
+\begin{document} 
+
+\section{Three-sphere compactification}
+
+Let $S$ be any manifold and consider a theory defined on a product of manifolds of the form
+\beqn
+M \times \C^2 .
+\eeqn
+We assume that the theory is holomorphic along $\C^2$.
+If we remove a point in $\C^2$ then we can consider restricting this theory to one on $M \times (\C^2 - \{0\}) \simeq M \times \R_+ \times S^3$.
+The dimensional reduction along the three-sphere fibration 
+\beqn
+M \times (\C^2 - \{0\}) \to M \times \R_+
+\eeqn
+is the 
+
+\subsection{Five-dimensional Chern--Simons theory}
+Let $\lie{g}$ be any Lie algebra equipped with a non-degenerate invariant bilinear form and let $X$ be a complex surface equipped with one-forms $\omega_1,\omega_2$ such that $\Omega = \omega_1 \wedge \omega_2$ is a non-vanishing holomorphic volume form.
+Five-dimensional Chern--Simons theory on $\R \times X$ valued in $\lie{g}$ is the theory whose fields are partial connections
+\beqn
+A \in \left(\Omega^1(\R \times X) \slash \<\omega_1,\omega_2\> \right) \otimes \lie{g} 
+\eeqn
+Locally we can take $\omega_i = \d z_i$, and in this case partial connections are of the form
+\beqn
+A = A_t \d t + A_{\zbar_1} \d \zbar_1 + A_{\zbar_2} \d \zbar_2 
+\eeqn
+where $A_t,A_{\zbar_i} \in C^\infty(\R \times X) \otimes \lie{g}$.
+
+The action functional is
+\beqn
+S_{5d}(A) = \int_{\R \times X} \Omega \wedge CS(A)
+\eeqn
+where $CS(A)$ is the Chern--Simons Lagrangian.
+
+Define the following commutative dg algebra
+\beqn
+\cA_{5d}(X) \define \Omega^\bu(\R \times X) \slash \<\omega_1,\omega_2\> .
+\eeqn
+In the BV formalism the space of fields of five-dimensional Chern--Simons theory is
+\beqn
+\cA_{5d}(X) \otimes \lie{g} [1] 
+\eeqn
+and the action functional above is encoded by the natural dg Lie algebra structure on $\cA_{5d}(X) \otimes \lie{g}$.
+
+\subsection{Kaluza--Klein compactification along $S^3$}
+
+We consider the case $X = \C^2 - \{0\}$.
+
+\begin{prop}
+The algebraic KK compactification of five-dimensional Chern--Simons theory along
+\beqn
+\R \times (\C^2 - \{0\}) \to \R \times \R_{>0}
+\eeqn
+is equivalent to the topological Poisson $\sigma$-model with target $z_1^{-1} z_2^{-1} \lie{g}[z_1^{-1} z_2^{-1}]$ with Poisson bivector
+\beqn
+\Pi = \Pi_0 + \cdots
+\eeqn
+where $\Pi_0$ is the standard Kirillov--Kostant--Souriau linear Poisson bivector induced from the current Lie algebra $\lie{g}[[z_1,z_2]] = \left(z_1^{-1} z_2^{-1} \lie{g}[z_1^{-1} z_2^{-1}]\right)^*$.
+\end{prop}
+
+
+\end{document}

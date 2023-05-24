@@ -1,0 +1,36 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{macros}
+\usepackage{refcount,xstring}
+\usepackage{bbm}
+\usepackage{subfiles}
+
+%\makeatletter
+%\numberwithin{section}{chapter}
+%\def\@secnumfont{\mdseries}
+%\def\section{\@startsection{section}{1}%
+%  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+%  {\normalfont\scshape\centering}}
+%\def\subsection{\@startsection{subsection}{2}%
+%  \z@{.5\linespacing\@plus.7\linespacing}{-.5em}%
+%  {\normalfont\bfseries}}
+
+%\patchcmd{\@thm}{\let\thm@indent\indent}{\let\thm@indent\noindent}{}{}
+%\patchcmd{\@thm}{\thm@headfont{\scshape}}{\thm@headfont{\bfseries}}{}{}
+
+\newcommand\thfd{\d'}
+
+\addbibresource{sections/refs}
+
+\title{Poisson structures and derived spheres}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\subfile{sections/spheres}
+
+\printbibliography
+
+\end{document}
