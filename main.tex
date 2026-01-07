@@ -29,7 +29,33 @@
 \maketitle
 \tableofcontents
 
-\subfile{sections/spheres}
+
+\section{Non-topological Poisson sigma models}
+\subfile{sections/aksz}	
+
+\section{Manin pairs, Manin triples, and Poisson--Lie groups}
+
+We first recall some standard definitions.
+
+\begin{dfn}[{\cite[\S3]{Drinfeld}, \cite[Definition 2.1.1]{AK-S}, among others}]
+    Let $\fd$ be a real or complex Lie algebra equipped with a nondegenerate symmetric invariant pairing, of split signature in the real case. \begin{itemize}
+            \item A \emph{Manin pair} consists of $\fd$ together with a choice of maximal isotropic Lie subalgebra $\fg_+ \subset \fd$. 
+            \item A \emph{Manin quasi-triple} consists of a Manin pair, together with a choice of complementary maximal isotropic linear subspace $V_- \subset \fd$.
+            \item A \emph{Manin triple} consists of a Manin quasi-triple for which $V_- = \fg_-$ is a Lie subalgebra. %so that $\fd$ is the direct sum of 
+            \item A \emph{Harish-Chandra Manin triple} consists of a Manin triple $\fg_+ \rightarrow \fd \leftarrow \fg_-$, together with a Lie group $G$ exponentiating $\fg_-$ and a $G$-representation on~$\fd$ extending the infinitesimal adjoint action of~$\fg_-$.
+        \end{itemize}
+\end{dfn}
+
+\section{Cigar compactifications via homotopy transfer}
+\subfile{sections/compactify}
+
+\section{Three-sphere compactification}
+\subfile{sections/m2}		
+
+
+%\subfile{sections/pseudo}
+
+%\subfile{sections/spheres}
 
 \printbibliography
 
