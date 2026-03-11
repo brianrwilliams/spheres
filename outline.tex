@@ -1,0 +1,227 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{macros}
+\usepackage{chngcntr}
+\usetikzlibrary{graphs}
+
+\DeclareMathOperator{\Bilin}{Bilin}
+
+\begin{document}
+
+\counterwithout{subsection}{section}
+
+%\section*{Notes on some applications of Young tableaux}
+\title{Outline: A paper on Manin triples and spheres}
+\author{Surya, Ingmar, Brian}
+
+\maketitle
+
+\section{Introduction}
+
+
+\section{Local symplectic realizations}
+
+Pavel defines a notion of symplectic realization for a coisotropic morphism. If we have 
+\[
+C \to X,
+\]
+then a symplectic realization is a pair of Lagrangian correspondences
+\[
+\begin{tikzcd}
+& & C \ar[dl] \ar[dr] & & \\
+& X' \ar[dl] \ar[dr]& & X \ar[dl] \ar[dr] & \\
+\star & & Y & & \star,
+\end{tikzcd}
+\]
+so that $Y$ is shifted symplectic,  $X, X' \to Y$ are Lagrangian, and $C \to X' \times_Y X$ is also Lagrangian.
+
+Surya says: A coisotropic morphism should be thought of as a boundary condition for a Poisson degenerate field theory, and an isotropic morphism should be thought of as a boundary condition for a presymplectic degenerate field theory.
+
+The symplectic realization of a Poisson structure is an extension to a Lagrangian morphism that induces that Poisson structure (with appropriate shifts). Thus a coisotropic morphism is a boundary condition for a boundary field theory. To ask for a symplectic realization is to ask for another boundary field theory that makes $C$ into a boundary condition for the sandwich.
+
+This should all be thought of as a coisotropic generalization of the Butson--Yoo universal bulk story.
+\section{General package of data: old version}
+
+\subsection{Manin triples}
+
+\begin{dfn} 
+A \emph{Manin triple} consists of
+\begin{itemize}
+\item a Lie algebra $\fd$;
+\item an invariant bilinear form on~$\fd$;
+\item a pair of transverse Lagrangian subalgebras $\fg_\pm \to \fd$.
+\end{itemize}
+\end{dfn}
+
+\subsection{AKSZ-type field theories and corner data from Manin triples}
+
+
+\subsection{Field theories and universal defects}
+
+\section{Explicit formulas and the second Gelfand--Dickey structure}
+
+\section{Examples}
+
+\section{The model}
+
+Let $X$ be a space and $L$ a subspace. It is a well-known fact in derived geometry that the self-intersection of~$L$ is a shift of its normal bundle:
+\[
+L \times_X L = N^*_X[-1] L.
+\]
+(At least, this is true under sufficient assumptions; for example, smooth subvarieties of~$\A^n$.)
+
+We are interested in constructing a model of this computation that will be useful in explicit examples. Down the road, we will want $X$ to be a vector space equipped with a Lie algebra structure. After extending this structure to a model for the derived intersection,  we will study homotopy transfer to an $L_\infty$ algebra structure on~$N^*_X[-1] L = L \oplus (X/L)[-1]$.
+
+Let $I = [0,1]$ denote the unit interval in~$\R$. Consider the following:
+\deq{
+\Omega[X;L] = \{ f \in \Omega^\bu(I) \otimes_\R X \mid f(t) \in  \Omega^\bu(I) \otimes_\R L \text{ for } t \to 0, ~t \to 1 \} .
+}
+If one wants, $\Omega[X;L]$ looks like a model for locally constant loops in the relative loop space of $X$ relative to $L$. Note that it is a sub-cdga of $\Omega^\bu(I) \otimes X$.
+
+\begin{prop}
+The cohomology of~$\Omega[X;L]$ is $L \oplus (X/L)[-1]$. There is a deformation retract of~$\Omega[X;L]$ onto its cohomology determined by two data:
+\begin{itemize}
+\item a  positive, monotonically nondecreasing, smooth function $\sigma \in \Omega^0(I)$ with $\sigma = 0$ in a neighborhood of~$0$ and $\sigma=1$ in a neighborhood of~$1$;
+\item a right splitting of the sequence
+\[
+\begin{tikzcd}
+0 \ar[r] & L \ar[r, "i"] & X \ar[r, "\pi"] & X/L \ar[r] \ar[l, dashed, bend left, "s"]& 0.
+\end{tikzcd}
+\]
+\end{itemize}
+\begin{proof}
+We will prove the first claim by constructing the deformation retract explicitly. Let 
+\[
+\int: \Omega^1(I) \to \Omega^0(I), \qquad \alpha \mapsto \left( t \mapsto \int_0^t \alpha \right)
+\] 
+denote the indefinite integral starting at $0$, and 
+\[
+{\int_I} :\Omega^1(I) \to \R, 
+\qquad \alpha \mapsto \int_0^1 \alpha
+\]
+denote the definite integral.
+Consider the following diagram:
+\[
+\begin{tikzcd}[row sep = 4em, column sep = 4em]
+L \ar[r, "1\otimes i", shift left] & \Omega[X;L]^0 \ar[d, "d \otimes 1"', shift right] \ar[l, shift left, "\ev_0 \otimes 1"] \\
+X/L \ar[r, "d\sigma \otimes s", shift left] & \Omega[X;L]^1 \ar[l, shift left, "\int_I \otimes \pi"] \ar[u, shift right, "h = \int - \,\sigma\cdot s \pi \int_I"']
+\end{tikzcd}
+\]
+Note that the projection in degree $0$ (the map $\ev_0 \otimes 1$) is well-defined due to the boundary conditions imposed on~$\Omega[X;L]$.
+
+Let $f$ denote an element in degree zero. Then $ip(f) = 1 \otimes f(0)$, whereas 
+\[
+hd(f) = \left (f - f(0) \right) - \sigma \cdot s\pi  \int_I df = f - f(0) - \sigma \cdot s\pi \left( f(1) - f(0) \right).
+\]
+The last term vanishes due to the boundary conditions on~$f$, so that the required relation holds here.
+
+Let $\alpha$ denote an element in degree one. Then 
+\[
+ip(\alpha) =d\sigma \otimes s \pi \left( \int_I \alpha \right) ,
+\]
+whereas
+\[
+dh(\alpha) = d \int \alpha - d\sigma \cdot s \pi \int_I \alpha = \alpha -  d\sigma \cdot s\pi \int_I \alpha,
+\]
+so that the condition is satisfied here as well.
+\end{proof}
+\end{prop}
+
+\section{Manin triples}
+Most of this is a poor man's gloss of Pavel's results.
+
+A \emph{Manin triple} is a Lie algebra $\fg$, equipped with the data of an invariant nondegenerate symmetric bilinear pairing and a pair of transverse maximal isotropic subalgebras  denoted $\fg_\pm$.
+The pairing gives rise to an identification $\fg_\pm \cong \fg_\mp^\vee$, and we have a collection of maps
+\[
+\begin{tikzcd}
+\fg_+ \ar[r, shift left, "i_+"] & \fg \ar[l, shift left, "\pi_+"] \ar[r, shift left, "\pi_-"] &  \fg_- \ar[l, shift left, "i_-"].
+\end{tikzcd}
+\]
+Note that $\fg_\pm$ are \emph{not} required to be ideals. Thus $i_\pm$ are maps of Lie algebras, whereas $\pi_\pm$ are only maps of vector spaces.
+If $\fg_+$ exponentiates to a Lie group $G_+$, then the Manin triple can be used to describe the structure of a Poisson--Lie group on~$G_+$. \textbf{Or is it the other way around? Don't trust this last sentence.}
+
+The pairing equips $B\fg$ with a $2$-shifted symplectic structure, with respect to which $B\fg_\pm$ define two complementary Lagrangians. Thus
+\[
+B\fg_+ \times_{B\fg} B\fg_+
+\]
+is a Lagrangian intersection, and is naturally $1$-shifted symplectic. We have seen above that the underlying graded vector space of a minimal $L_\infty$ algebra modeling this intersection takes the form $\fg_+ \oplus \fg_-[-1]$.
+
+Again on general grounds, $\fg_-[-1]$ defines a Lagrangian in the self-intersection, and thereby inherits a $0$-shifted Poisson structure. 
+(All of these shifts will change around later.) Our goal is to use the model from above to perform homotopy transfer explicitly, calculate the minimal model of the self-intersection, and match this Poisson structure to the second Adler--Gelfand--Dickey structure. \textbf{I think Pavel's results mean we don't actually have to do this. But oh well.}
+
+$\Omega^\bu(I) \otimes \fg$ inherits a dg Lie algebra structure, and $\Omega[\fg;\fg_+]$ is a sub dg Lie algebra. We apply the previous computation to $\Omega[\fg;\fg_+]$ to see that the cohomology is isomorphic to $\fg_+ \oplus \fg_-[-1]$. Thus we are computing an unshifted Poisson structure on~$B \fg_-[-1]$, which is just the vector space $\fg_-$. To do this, we need to compute the terms in the $L_\infty$ structure on the minimal model that are of the form
+\[
+\mu_{k+1}(x, y_1, \ldots, y_k),
+\]
+with $x \in \fg_+$ a degree-zero element and $y_i \in \fg_-$ degree-one elements. The result will be a term in the Poisson bivector of order $(k-1)$ in coefficients. These brackets are given as usual by sums over labeled trees.
+
+Since we are working with the minimal model, there is no differential, and hence no constant-coefficient term. We begin by computing the linear term, which is given by the tree 
+\[
+\begin{tikzpicture}
+\draw (0,0) node[anchor=south] {$x$};
+\draw (1,0) node[anchor=south] {$y_1$};
+\draw (0,0) -- (1,-2);
+\draw (0.5,-1) -- (1,0);
+\end{tikzpicture}
+\]
+The bracket is
+\[
+[x,y_1] \otimes d\sigma \in \Omega[\fg;\fg_+]^1,
+\]
+Applying the projection, the output is
+\[
+\pi_- [x, y_1] \cdot \int_I  d\sigma = \pi_- [x, y_1].
+\]
+To go further, we apply the homotopy instead, computing the tree
+\[
+\begin{tikzpicture}
+\draw (0,0) node[anchor=south] {$x$};
+\draw (1,0) node[anchor=south] {$y_1$};
+\draw (2,0) node[anchor=south] {$y_2$};
+\draw (0.5, -1.5) node{$h$};
+\draw (0,0) -- (1.5,-3);
+\draw (0.5,-1) -- (1,0);
+\draw (1,-2) -- (2,0);
+\end{tikzpicture}
+\]
+The output is
+\[
+h( [x,y_1] \otimes d\sigma ) = [x,y_1] \otimes \sigma - \pi_- [x,y_1] \otimes \sigma = \pi_+ [x,y_1] \otimes \sigma.
+\]
+Going further, we see that the result after bracketing with $i(y_2)$ is
+\[
+[\pi_+[x,y_1],y_2] \otimes \sigma \, d\sigma.
+\]
+If we apply the projection, we get 
+\[
+\frac{1}{2} \pi_- [\pi_+[x,y_1],y_2]
+\]
+We could also apply the homotopy again, in preparation for computing the next tree:
+\[
+\begin{tikzpicture}
+\draw (0,0) node[anchor=south] {$x$};
+\draw (1,0) node[anchor=south] {$y_1$};
+\draw (2,0) node[anchor=south] {$y_2$};
+\draw (3,0) node[anchor=south] {$y_3$};
+\draw (0.5, -1.5) node{$h$};
+\draw (1, -2.5) node{$h$};
+\draw (0,0) -- (2,-4);
+\draw (0.5,-1) -- (1,0);
+\draw (1,-2) -- (2,0);
+\draw (1.5,-3) -- (3,0);
+\end{tikzpicture}
+\]
+Doing so yields
+\[
+\frac12 [\pi_+[x,y_1],y_2] \otimes  \sigma^2 - \frac12 \pi_- [\pi_+[x,y_1],y_2] \otimes \sigma.
+\]
+Bracketing again, we obtain
+\[
+\frac12 [[\pi_+[x,y_1],y_2], y_3] \otimes \sigma^2\, d\sigma  - \frac12 [\pi_-[\pi_+[x,y_1],y_2], y_3] \otimes \sigma \, d\sigma.
+\]
+Upon applying the projection, this becomes
+\[
+\frac16 \pi_- [[\pi_+[x,y_1],y_2], y_3] - \frac14 \pi_- [\pi_-[\pi_+[x,y_1],y_2], y_3].
+\]
+
+\end{document}
